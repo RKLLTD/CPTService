@@ -20,7 +20,7 @@ public class SubsetDao extends AbstractDao<Subset>{
 		rowMapper = new RowMapper<Subset>() {
     		@Override
     		public Subset mapRow(ResultSet rs, int rowNum) throws SQLException {
-	        	int id = rs.getInt("id");
+	        	Integer id = rs.getInt("id");
 	        	String name = rs.getString("name");
 	            Subset subset = new Subset(id, name);
 	            return subset;
