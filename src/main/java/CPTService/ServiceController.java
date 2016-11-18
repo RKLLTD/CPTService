@@ -13,7 +13,7 @@ import CPTService.dao.ServiceDao;
 import CPTService.model.Service;
 
 @RestController
-public class ServiceController implements IController<Service>{
+public class ServiceController implements IServiceService<Service>{
 	
 	@Autowired
 	protected ServiceDao serviceDao;
@@ -21,10 +21,16 @@ public class ServiceController implements IController<Service>{
     @Override
 	@RequestMapping(value="/service/{id}", method = RequestMethod.GET)
     public Service get(@PathVariable(value="id") Integer id) throws Exception{    	
-    	Service subset = serviceDao.get(id);
-    	return subset;
+    	Service service = serviceDao.get(id);
+    	return service;
     }
-
+    @Override
+	@RequestMapping(value="/service/byCode/{code}", method = RequestMethod.GET)
+    public Service getByCode(@PathVariable(value="code") Integer id) throws Exception{    	
+    	Service service = serviceDao.getByCode(id);
+    	return service;
+    }
+	
     @Override
 	@RequestMapping(value="/service", method = RequestMethod.GET)
     public List<Service> list() {

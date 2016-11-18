@@ -23,7 +23,7 @@ public class SubsetController implements IController<Subset>{
     	Subset subset = subsetDao.get(id);
     	return subset;
     }
-
+    
     @RequestMapping(value="/subset", method = RequestMethod.GET)
     public List<Subset> list() {
     	List<Subset> subsets = subsetDao.list();
